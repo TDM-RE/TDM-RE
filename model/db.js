@@ -6,19 +6,24 @@ db.serialize(() => {
         number integer not null,
         name text not null,
         reason text not null,
-        time text not null)`);
+        time text not null,
+        allow boolean,
+        reject_reason text)`);
 
     db.run(`create table extra(
         number integer not null,
         name text not null,
         reason text not null,
-        time text not null)`);
+        time text not null,
+        allow boolean,
+        reject_reason text)`);
     
     db.run(`create table user(
         user_name text not null,
         user_number integer not null,
         user_id text not null,
-        user_pw text not null)`);
+        user_pw text not null,
+        admin boolean not null)`);
 });
 
 db.close();

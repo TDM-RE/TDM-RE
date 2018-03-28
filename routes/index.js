@@ -52,6 +52,6 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.listen(1212, () => {
-    console.log('Server running at 1212');
+app.listen(process.env.port || 1212, () => {
+    console.log('Server running at ' + process.env.port);
 });
