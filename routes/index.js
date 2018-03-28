@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+let cronJob = require("cron").CronJob;
 let sqlite3 = require('sqlite3').verbose();
 let bodyParser = require('body-parser');
 let jwt = require('jsonwebtoken');
@@ -19,6 +20,15 @@ let db = new sqlite3.Database('../model/db.db', sqlite3.OPEN_READWRITE, (err) =>
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+var dt = new Date();
+var date = {"date" :String(dt.getMonth()+1)+"/"+String(dt.getDate())};
+console.log("date: ", date.date);
+
+const everyday = require("./everyday")(cronJob, date);
+
+
+const accept = require("./accept")(app, db);
 
 app.get('/', (req, res) => {
     res.send('Hello World!!');

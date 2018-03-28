@@ -7,6 +7,7 @@ db.serialize(() => {
         name text not null,
         reason text not null,
         time text not null,
+        date text not null,
         allow boolean,
         reject_reason text)`);
 
