@@ -24,6 +24,7 @@ db.serialize(() => {
         user_number integer not null,
         user_id text not null,
         user_pw text not null,
+        check boolean not null,
         admin boolean not null)`);
 });
 
