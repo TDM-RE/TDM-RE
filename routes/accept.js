@@ -17,6 +17,13 @@ module.exports = (app, db) => {
                     if (err) {
                         console.log(err);
                         res.status(400).end();
+                    }
+                });
+
+                db.run('update user set check = ? where user_number = ?', [true, req.body.number], (err)=> {
+                    if(err) {
+                        console.log(err);
+                        res.status(200).end();
                     } else {
                         res.status(200).end();
                     }

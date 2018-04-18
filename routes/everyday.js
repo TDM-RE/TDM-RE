@@ -8,6 +8,12 @@ module.exports = (cronJob, date) => {
             }
         });
 
+        db.run('UPDATE user SET check = ? WHERE check = ?', [false, true], (err)=> {
+            if(err) {
+                console.log(err);
+            }
+        });
+
         var dt = new Date();
         date.date = String(dt.getMonth()+1)+"/"+String(dt.getDate());
 
