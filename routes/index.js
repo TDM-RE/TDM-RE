@@ -37,8 +37,6 @@ let post = require('./register');
 
 let login = require('./login');
 
-let logout = require('./logout');
-
 let outing_list = require('./outing_list');
 app.listen(process.env.port || 1212, () => {
     console.log('Server running at ' + process.env.port);
