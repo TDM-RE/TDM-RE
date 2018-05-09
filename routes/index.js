@@ -25,7 +25,7 @@ var dt = new Date();
 var todayDate = {"date" :String(dt.getMonth()+1)+"/"+String(dt.getDate())};
 console.log("date: ", todayDate.date);
 
-const everyday = require("./everyday")(cronJob, todayDate);
+const everyday = require("./everyday")(cronJob, todayDate, db);
 
 const accept = require("./accept")(app, db);
 
