@@ -8,24 +8,30 @@ db.serialize(() => {
         reason text not null,
         time text not null,
         date text not null,
-        allow boolean,
+        allow integer, 
         reject_reason text)`);
+        //allow is boolean.
+        //allow is only 0 or 1.
 
     db.run(`create table extra(
         number integer not null,
         name text not null,
         reason text not null,
         time text not null,
-        allow boolean,
+        allow integer,
         reject_reason text)`);
+        //allow is boolean.
+        //allow can be only 0 or 1.
     
     db.run(`create table user(
         user_name text not null,
         user_number integer not null,
         user_id text not null,
         user_pw text not null,
-        check boolean not null,
-        admin boolean not null)`);
+        user_check integer not null,
+        admin integer not null)`);
+        //check and admin are boolean.
+        //check and admin can be only 0 or 1.
 });
 
 db.close();

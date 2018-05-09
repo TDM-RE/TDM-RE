@@ -22,10 +22,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var dt = new Date();
-var date = {"date" :String(dt.getMonth()+1)+"/"+String(dt.getDate())};
-console.log("date: ", date.date);
+var todayDate = {"date" :String(dt.getMonth()+1)+"/"+String(dt.getDate())};
+console.log("date: ", todayDate.date);
 
-const everyday = require("./everyday")(cronJob, date);
+const everyday = require("./everyday")(cronJob, todayDate, db);
 
 const accept = require("./accept")(app, db);
 
@@ -33,11 +33,15 @@ app.get('/', (req, res) => {
     res.send('Hello World!!');
 });
 
-let post = require('./register');
+let post = require('./register')(app, db);
 
-let login = require('./login');
+let login = require('./login')(app, db, token);
 
+<<<<<<< HEAD
 let apply = require('./apply');
+=======
+//let logout = require('./logout');
+>>>>>>> 2c2510d56216afd91bad5f1e051867a6e62d3664
 
 let outing_list = require('./outing_list');
 app.listen(process.env.port || 1212, () => {
