@@ -20,7 +20,7 @@ module.exports = (app, db) => {
                     }
                 });
 
-                db.run('update user set check = ? where user_number = ?', [true, req.body.number], (err)=> {
+                db.run('update user set user_check = ? where user_number = ?', [1, req.body.number], (err)=> {
                     if(err) {
                         console.log(err);
                         res.status(200).end();

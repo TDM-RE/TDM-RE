@@ -33,9 +33,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!!');
 });
 
-let post = require('./register');
+let post = require('./register')(app, db);
 
-let login = require('./login');
+let login = require('./login')(app, db, token);
 
 //let logout = require('./logout');
 
